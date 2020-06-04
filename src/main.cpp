@@ -1,18 +1,20 @@
-#pragma region Day 3 Challenge - 
-/******* DAY 03 - START01 - NUMBER MIRROR********
-Write a program that accepts a number, n, and outputs the same.
-Constraint: 
-    0 <= n <= 10^5
-    time limit: 1 sec
+#pragma region Day 4 Challenge - 
+/******* DAY 04 - DECINC - Decrement OR Increment********
+Write a program to obtain a number N and increment its value 
+by 1 if the number is divisible by 4 otherwise decrement its value by 1.
+Constraint:
+    0<=N<=1000
+    Time limit = 1sec
 */
+
 #include <stdio.h>
 
 int main(int argc, char* argv[])
 {
-    int input;
-    scanf("%d", &input);
-    printf("%d", input);
-
-	return 0;
+int N;
+scanf("%d", &N);
+N=N%4==0?N+1:N-1;
+printf("%d", N);
+return 0;
 }
 #pragma endregion
