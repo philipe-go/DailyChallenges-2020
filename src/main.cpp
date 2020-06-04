@@ -7,11 +7,9 @@ Constraint:
 	time limit - 1.223s
 	Source Limit - 15000B
 */
-#include <iostream>
-#include <string>
+#include <stdio.h>
 #include <queue>
 #include <tgmath.h>
-#include <vector>
 
 typedef long int ll;
 
@@ -23,55 +21,29 @@ void PrimeNumber(ll n) //O(logn)
 {
 	ll i;
 	for (i = 2; (i <= sqrt(n)) && (n % i != 0); i++)
-	{ }
+	{
+	}
 	if (i > sqrt(n))
 		primes.push(n);
 }
 
-void Split(string st) //O(n)
+int main()
 {
-	string temp = "";
-	char* ptr = &st[0];
-	vector<int> interval;
+	int t = 0, begin = 0, end = 0;
 
-	do //O(n)
+	scanf("%d", &t);
+
+	for (t; t > 0; t--) //O(n^2)
 	{
-		if (*ptr != ' ')
-			temp = temp + *ptr;
-		else
-		{
-			interval.push_back(stoi(temp));
-			temp = "";
-		}
-
-		ptr = ptr + 1;
-
-	} while (*ptr != '\0');
-
-	interval.push_back(stoi(temp));
-
-	for (int i = interval[0]; i <= interval.back(); i++)
-		PrimeNumber(i);
-}
-
-int main(int argc, char* argv[])
-{
-	int t; //number of test cases
-	string input;
-	
-
-	cin >> t;
-	cin.ignore();
-
-	for (t; t > 0; t--) //O(n)
-	{
-		getline(cin, input);
-		Split(input);
+		scanf("%d", &begin);
+		scanf("%d", &end);
+		for (begin; begin <= end; begin++) //O(n)
+		PrimeNumber(begin);
 	}
 
 	do //O(n)
 	{
-		cout << primes.front() << endl;
+		printf("%ld\n", primes.front());
 		primes.pop();
 	} while (!primes.empty());
 }
