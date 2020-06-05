@@ -1,51 +1,42 @@
-#pragma region Day 5 Challenge 2 - CUTBOARD
-/******* DAY 05 - CUTBOARD - Cut the Board ********
-Suzumo has a chessboard with N rows and M columns. 
-In one step, he can choose two cells of the chessboard which share a common edge 
-(that has not been cut yet) and cut this edge.
-Formally, the chessboard is split into two or more pieces if it is possible to 
-partition its cells into two non-empty subsets S1 and S2 (S1∩S2=∅, |S1|+|S2|=NM) 
-such that there is no pair of cells c1,c2 (c1∈S1,c2∈S2) which share a common edge 
-that has not been cut.
-Suzumo does not want the board to split into two or more pieces. 
-Compute the maximum number of steps he can perform while satisfying this condition.
-Constraints:
-    1 <= T <= 64
-    1 <= N, M <= 8
-    Time limit: 1 sec
-    Source Limit: 50 KB
-*/
 #include <stdio.h>
 #include <iostream>
-#include <queue>
+#include <vector>
+#include <math.h>
 
 using namespace std;
 
-short Compute(short m, short n)
+short counter;
+
+short Compute(double n)
 {
-    return (m - 1)*(n - 1);
+    counter = 0;
+    do
+    {
+        counter++;
+        n = n - ((int) sqrt(n) * (int) sqrt(n));
+    } while (n != 0);
+
+    return counter;
 }
 
 int main(int argc, char *argv[])
 {
-    short t, n, m;
-    queue<short> result;
+    short t, n, it = 0;
+    vector<short> result;
 
     scanf("%d", &t);
     for (t; t > 0; t--)
     {
         scanf("%d", &n);
-        scanf("%d", &m);
-        result.push(Compute(n, m));
+        result.push_back(Compute(n));
     }
 
-    while (!result.empty())
+    while (it < result.size())
     {
-        printf("%d%\n", result.front());
-        result.pop();
+        printf("%d\n", result[it]);
+        it++;
     }
 
     system("pause");
     return 0;
 }
-#pragma endregion

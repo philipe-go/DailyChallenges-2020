@@ -50,7 +50,7 @@ using namespace std;
 
 short Compute(short m, short n)
 {
-    return (m - 1)*(n - 1);
+    return (m - 1) * (n - 1);
 }
 
 int main(int argc, char *argv[])
@@ -68,8 +68,68 @@ int main(int argc, char *argv[])
 
     while (!result.empty())
     {
-        printf("%d%\n", result.front());
+        printf("%d\n", result.front());
         result.pop();
+    }
+
+    system("pause");
+    return 0;
+}
+#pragma endregion
+
+#pragma region Day 5 Challenge 3 - ICL1902
+/******* DAY 05 - ICL1902 - FlatLand ********
+In the 2-D world of Flatland, the Circles were having their sports 
+day and wanted to end it with a nice formation. So, they called upon 
+Mr. Sphere from Spaceland for help. Mr Sphere decides to arrange the 
+Circles in square formations. He starts with N Circles and forms the 
+largest possible square using these Circles. He then takes the remaining 
+Circles and repeats the procedure. A square of side S requires S2
+Circles to create.
+Find the number of squares he will be able to form at the end of the process.
+Constraints:
+    1 <= T <= 1000
+    1 <= N <= 1000
+    Time limit: 1 sec
+    Source Limit: 50 KB
+*/
+#include <stdio.h>
+#include <iostream>
+#include <vector>
+#include <math.h>
+
+using namespace std;
+
+short counter;
+
+short Compute(double n)
+{
+    counter = 0;
+    do
+    {
+        counter++;
+        n = n - ((int) sqrt(n) * (int) sqrt(n));
+    } while (n != 0);
+
+    return counter;
+}
+
+int main(int argc, char *argv[])
+{
+    short t, n, it = 0;
+    vector<short> result;
+
+    scanf("%d", &t);
+    for (t; t > 0; t--)
+    {
+        scanf("%d", &n);
+        result.push_back(Compute(n));
+    }
+
+    while (it < result.size())
+    {
+        printf("%d\n", result[it]);
+        it++;
     }
 
     system("pause");
