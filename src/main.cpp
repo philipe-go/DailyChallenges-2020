@@ -1,20 +1,32 @@
-#pragma region Day 4 Challenge - 
-/******* DAY 04 - DECINC - Decrement OR Increment********
-Write a program to obtain a number N and increment its value 
-by 1 if the number is divisible by 4 otherwise decrement its value by 1.
-Constraint:
-    0<=N<=1000
-    Time limit = 1sec
-*/
-
 #include <stdio.h>
+#include <iostream>
+#include <vector>
 
-int main(int argc, char* argv[])
+short Compute(short m, short n)
 {
-int N;
-scanf("%d", &N);
-N=N%4==0?N+1:N-1;
-printf("%d", N);
-return 0;
+    return (m - 1) * (n - 1);
 }
-#pragma endregion
+
+int main(int argc, char *argv[])
+{
+    short t, n, m;
+    std::vector<short> result;
+
+    scanf("%d", &t);
+    for (t; t > 0; t--)
+    {
+        scanf("%d", &n);
+        scanf("%d", &m);
+        result.push_back(Compute(n, m));
+    }
+
+    int c = 0;
+    while (c < result.size())
+    {
+        printf("%d%\n", result[c]);
+        c++;
+    }
+
+    system("pause");
+    return 0;
+}
