@@ -1,6 +1,3 @@
-//SPOJ June-2020 Challenges
-//by Philipe-Go
-
 #pragma region Day 1 challenge - Prime Generator
 /******* DAY 01 - PRIME1 - Prime Generator ********
  * Peter wants to generate some prime numbers for his cryptosystem.

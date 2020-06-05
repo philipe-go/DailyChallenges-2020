@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     int c = 0;
     while (c < result.size())
     {
-        printf("%d%\n", result[c]);
+        printf("%d\n", result[c]);
         c++;
     }
 
