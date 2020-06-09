@@ -21,17 +21,27 @@ int main(int argc, char *argv[])
 {
     short t, n;
     std::vector<short> output;
+    short years[] = {2010, 2015, 2016, 2017, 2019};
 
     scanf("%d", &t);
     for (t; t > 0; t--)
     {
         scanf("%d", &n);
-        (n > 2010 && n < 2015) ? output.push_back(0) : output.push_back(1);
+        short result = 0;
+        for (int it = 0; it < sizeof(years) / sizeof(short); it++)
+        {
+            if (n == years[it])
+            {
+                result = 1;
+                break;
+            }
+        }
+        output.push_back(result);
     }
 
     for (short i = 0; i < output.size(); i++)
     {
-        output[i] == 1 ? printf("\nHOSTED") : printf("\nNOT HOSTED");
+        output[i] == 1 ? printf("HOSTED\n") : printf("NOT HOSTED\n");
     }
 
     system("pause");
