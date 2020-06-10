@@ -1,47 +1,51 @@
-#pragma region Day 6 Challenge - SNCKYEAR
-/******* DAY 06 - SNCKYEAR - Chef and SnackDown ********
-Chef is interested in the history of SnackDown contests. He needs a 
-program to verify if SnackDown was hosted in a given year.
-SnackDown was hosted by CodeChef in the following years: 
-2010, 2015, 2016, 2017 and 2019.
-
+#pragma region Day 8 Challenge - CHOPRT
+/******* DAY 08 - CHOPRT - Chef and Operators  ********
+Chef has just started Programming, he is in first year of Engineering. 
+Chef is reading about Relational Operators. Relational Operators are 
+operators which check relatioship between two values. Given two numerical
+values A and B you need to help chef in finding the relationship between 
+them that is: 
+    First one is greater than second or, 
+    First one is less than second or,
+    First and second one are equal.
 Constraints: 
-    1 <= T <= 10
-    2010 <= N <= 2019
-    Time limit: 0.5sec
+    1 <= T <= 10000
+    1 <= A, B <= 1000000001
+    Time limit: 1sec
     Source Limit: 50KB
 */
 
 #include <stdio.h>
-//#include <queue>
-#include <vector>
 #include <iostream>
+#include <vector>
 
-int main(int argc, char *argv[])
+char Checker(int a, int b)
 {
-    short t, n;
-    std::vector<short> output;
-    short years[] = {2010, 2015, 2016, 2017, 2019};
+    int r = a - b;
+    if (a - b > 0)
+        return '>';
+    else if (a - b < 0)
+        return '<';
+    else
+        return '=';
+}
+
+int main(int argc, char *agrv[])
+{
+    short t;
+    int a, b;
+    std::vector<char> result;
 
     scanf("%d", &t);
     for (t; t > 0; t--)
     {
-        scanf("%d", &n);
-        short result = 0;
-        for (int it = 0; it < sizeof(years) / sizeof(short); it++)
-        {
-            if (n == years[it])
-            {
-                result = 1;
-                break;
-            }
-        }
-        output.push_back(result);
+        scanf("%d %d", &a, &b);
+        result.push_back(Checker(a, b));
     }
 
-    for (short i = 0; i < output.size(); i++)
+    for (int i = 0; i < result.size(); i++)
     {
-        output[i] == 1 ? printf("\nHOSTED") : printf("\nNOT HOSTED");
+        printf("%c\n", result[i]);
     }
 
     system("pause");
