@@ -1,5 +1,5 @@
 #pragma region Day 10 Challenge - LUCKFOUR 
-/******* DAY 10 - LUCKFOUR - Lucky Four   ********
+/******* DAY 10 - LUCKFOUR - LuckyFour   ********
 Kostya likes the number 4 much. Of course! This number has such a lot of properties, like:
     Four is the smallest composite number;
     It is also the smallest Smith number;
