@@ -1,41 +1,52 @@
-#pragma region Day 10 Challenge - LUCKFOUR
-
-#include <stdio.h>
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream>
 
-int Checker(long a)
+using namespace std;
+
+string WordChecker(string s1, string s2)
 {
-    std::string s = std::to_string(a);
-    int res = 0;
-    for (int it = 0; it < s.length(); it++)
+    int min = s1.length(), max = 0;
+    for (int i = 0; i < s1.length(); i++)
     {
-        s[it] == '4' ? res ++ : res;
+        switch (s1.at(i))
+        {
+            case '?':
+            {
+                min--;
+                max++;
+            }break;
+            default:
+            {
+                if (s2.at(i) == '?') { min--; max++;}
+                else if (s1.at(i) == s2.at(i)) min--;
+                else max++;
+            }
+        }
+
     }
-    return res;
+    return (to_string(min) + " " + to_string(max));
 }
 
 int main(int argc, char *agrv[])
 {
-    int t;
-    long n;
-    std::vector<int> result;
+    short t;
+    string s1, s2;
+    vector<string> result;
 
-    scanf("%d", &t);
+    cin >> t;
     for (t; t > 0; t--)
     {
-        scanf("%d", &n);
-        result.push_back(Checker(n));
+        cin >> s1;
+        cin >> s2;
+        result.push_back(WordChecker(s1,s2));
     }
 
     for (int i = 0; i < result.size(); i++)
     {
-        printf("%d\n", result[i]);
+        cout << result[i] << endl;
     }
 
     system("pause");
     return 0;
 }
-
-#pragma endregion
