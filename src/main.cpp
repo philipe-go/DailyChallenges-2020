@@ -1,57 +1,27 @@
-#pragma region Day 14 Challenge - PRICECON
-/******* DAY 14 - PRICECON - Chef and Price Control   ********
-Chef has N items in his shop (numbered 1 through N); for each valid i, 
-the price of the i-th item is Pi. Since Chef has very loyal customers, all N
-items are guaranteed to be sold regardless of their price.
-However, the government introduced a price ceiling K, which means that for 
-each item i such that Pi>K, its price should be reduced from Pi to K.
-Chef's revenue is the sum of prices of all the items he sells. Find the amount 
-of revenue which Chef loses because of this price ceiling.
+#pragma region Day 15 Challenge 2 - ZCOSCH
+/******* DAY 15 - ZCOSCH - How much Scholarship ********
+The ZCO Scholarship Contest has just finished, and you finish 
+with a rank of R. You know that Rank 1 to Rank 50 will get 100% 
+scholarship on the ZCO exam fee and Rank 51 to Rank 100 will get
+50% percentage scholarship on the ZCO exam fee. The rest do not
+get any scholarship.
+What percentage of scholarship will you get ?
 
 Constraints: 
-    1 <= T <= 100
-    1 <= N <= 10000
-    1 <= Pi <= 1000 for each value of i
-    1 <= K <= 1000
-    Subtask #1 (100 points): original constraints
+    1 <= R <= 10^9
     Time limit: 1sec
     Source Limit: 50KB
 */
 
 #include <stdio.h>
-#include <vector>
 #include <iostream>
-
-int RevenueChecker(std::vector<short> rev, short k)
-{
-    int lostRev = 0;
-    while(!rev.empty())
-    {
-        rev.back() < k ? lostRev : lostRev += rev.back() - k;
-        rev.pop_back();
-    }
-    return lostRev;
-}
 
 int main(int argc, char *argv[])
 {
-    short t;
-    int n, p, k;
-    std::vector<short> rev;
+    long r;
 
-    scanf("%d", &t);
-    while (t--)
-    {
-        scanf("%d", &n);
-        scanf("%d", &k);
-        while(n--)
-        {
-            scanf("%d", &p);
-            rev.push_back(p);
-        }
-            printf("%d\n", RevenueChecker(rev, k));
-            rev.clear();
-    }
+    scanf("%d", &r);
+    r <= 50 ? printf("100") : r <= 100 ? printf("50") : printf("0"); 
 
     system("pause");
     return 0;
