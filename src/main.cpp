@@ -18,12 +18,13 @@ Constraints:
 */
 
 #include <stdio.h>
-#include <string>
 #include <iostream>
 
-std::string TeacherCheck(short n, short m)
+void TeacherCheck(short n, short m)
 {
-    n != m ? return "YES" : n % 2 != 0 ? return "NO" : return "YES"; 
+    if (n != m) printf("YES\n");
+    else if (n % 2 != 0) printf("NO\n");
+    else printf("YES\n"); 
 }
 
 int main(int argc, char *argv[])
@@ -34,9 +35,8 @@ int main(int argc, char *argv[])
     scanf("%d", &t);
     while (t--)
     {
-        scanf("%d", &n);
-        scanf("%d", &m);
-        printf("%s\n", TeacherCheck(n, m));
+        scanf("%d %d", &n, &m);
+        TeacherCheck(n, m);
     }
 
     system("pause");

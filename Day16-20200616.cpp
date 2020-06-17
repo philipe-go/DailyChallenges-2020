@@ -23,7 +23,9 @@ Constraints:
 
 std::string TeacherCheck(short n, short m)
 {
-    n != m ? return "YES" : n % 2 != 0 ? return "NO" : return "YES"; 
+    if (n != m) return "YES";
+    else if (n % 2 != 0) return "NO";
+    return "YES"; 
 }
 
 int main(int argc, char *argv[])
@@ -34,9 +36,8 @@ int main(int argc, char *argv[])
     scanf("%d", &t);
     while (t--)
     {
-        scanf("%d", &n);
-        scanf("%d", &m);
-        printf("%s\n", TeacherCheck(n, m));
+        scanf("%d %d", &n, &m);
+        std::cout << TeacherCheck(n, m) << std::endl;
     }
 
     system("pause");
