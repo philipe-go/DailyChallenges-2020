@@ -4,9 +4,6 @@
  * Help him! Your task is to generate all prime numbers between two given numbers!
 */
 
-
-//LEONARDO WAS HERE
-
 #include <iostream>
 #include <string>
 #include <queue>
