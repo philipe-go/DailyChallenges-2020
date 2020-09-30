@@ -1,4 +1,5 @@
 //Find the parity outlier
+#include <vector>
 
 int FindOutlier(std::vector<int> arr)
 {
